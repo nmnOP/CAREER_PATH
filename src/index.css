@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 44% 9%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 44% 9%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 190 95% 55%;
+    --primary-foreground: 222 47% 6%;
+
+    --secondary: 222 30% 16%;
+    --secondary-foreground: 210 40% 90%;
+
+    --muted: 222 30% 14%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 260 80% 65%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 190 95% 55%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 222 44% 8%;
+    --sidebar-foreground: 210 40% 90%;
+    --sidebar-primary: 190 95% 55%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 222 30% 14%;
+    --sidebar-accent-foreground: 210 40% 90%;
+    --sidebar-border: 222 30% 18%;
+    --sidebar-ring: 190 95% 55%;
+
+    /* Custom tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(190 95% 55%), hsl(260 80% 65%));
+    --gradient-card: linear-gradient(135deg, hsl(222 44% 11%), hsl(222 44% 8%));
+    --gradient-hero: linear-gradient(180deg, hsl(222 47% 8%) 0%, hsl(222 47% 4%) 100%);
+    --shadow-glow: 0 0 40px -10px hsl(190 95% 55% / 0.3);
+    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.4);
+    --glass-bg: hsl(222 44% 10% / 0.6);
+    --glass-border: hsl(222 30% 22% / 0.5);
+
+    /* Skill tree node colors */
+    --node-locked: 222 30% 16%;
+    --node-active: 190 95% 55%;
+    --node-completed: 150 80% 50%;
+    --node-in-progress: 45 95% 55%;
+  }
+
+  .dark {
+    /* Already dark by default */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--gradient-primary);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+  }
+}
+
+/* React Flow custom styles */
+.react-flow__node {
+  font-family: 'Inter', sans-serif;
+}
+
+.react-flow__edge-path {
+  stroke: hsl(222 30% 25%);
+  stroke-width: 2;
+}
+
+.react-flow__background {
+  background-color: hsl(222 47% 5%);
+}
