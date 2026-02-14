@@ -1,148 +1,122 @@
-Here’s a clean, professional **README.md** you can use for your React project 👇
+Perfect 👍 since you're using **React + TypeScript + Vite + Tailwind + Supabase**, I’ll tailor the README exactly to your project structure.
+
+You can copy this directly into your `README.md`.
 
 ---
 
 # 🌳 Career Path Visualizer
 
 An interactive web application that helps students understand the skills required for their dream job.
-Enter a career (e.g., *Frontend Developer*), and the app generates a visual roadmap tree of skills with progress tracking.
+
+Enter a career (e.g., **Frontend Developer**), and the app generates an interactive roadmap tree with skill tracking and progress visualization.
 
 ---
 
-## 🚀 Live Demo
+## ✨ Features
 
-(Coming Soon)
-
----
-
-## 🎯 Problem
-
-Students often struggle to understand:
-
-* What skills they need to learn
-* The order in which to learn them
-* How topics are connected
-* How far they’ve progressed
+* 🔍 Enter a dream career
+* 🌳 Interactive skill tree visualization
+* 🧩 Expandable & collapsible nodes
+* 📊 Skill progress tracking
+* 💾 Local progress persistence
+* ⚡ Built with modern React + TypeScript
+* 🔐 Supabase integration (for future auth / storage)
 
 ---
 
-## 💡 Solution
+## 🛠 Tech Stack
 
-Career Path Visualizer generates a structured roadmap of skills displayed as an **interactive tree graph** with progress tracking and milestone visualization.
-
----
-
-## 🖥️ Features
-
-### 🔍 Career Input
-
-* Enter your dream job
-* Generate a roadmap instantly
-
-### 🌳 Interactive Roadmap Tree
-
-* Expandable / collapsible skill nodes
-* Drag & zoom support
-* Clear parent-child skill relationships
-* Skill dependency visualization
-
-### 📊 Progress Tracking
-
-* Mark skills as completed
-* Visual progress bars
-* Automatic percentage calculation
-* Saved progress using localStorage
-
-### 📚 Skill Details Panel
-
-* Click a node to:
-
-  * View skill description
-  * View recommended learning resources
-  * See difficulty level
-
----
-
-## 🛠️ Tech Stack
-
-### Frontend
-
-* **React**
-* **React Flow** (for node graph rendering)
-* **Tailwind CSS** (UI styling)
-* **Framer Motion** (animations)
-
-### State Management
-
-* React Hooks
-* Context API (optional)
+* **React 18**
+* **TypeScript**
+* **Vite**
+* **TailwindCSS**
+* **Supabase**
+* **Custom Skill Graph Components**
 
 ---
 
 ## 📂 Project Structure
 
+Based on your current structure:
+
 ```
-career-path-visualizer/
+src/
 │
-├── public/
-├── src/
-│   ├── components/
-│   │   ├── CareerInput.jsx
-│   │   ├── RoadmapGraph.jsx
-│   │   ├── SkillNode.jsx
-│   │   ├── ProgressBar.jsx
-│   │   └── Sidebar.jsx
-│   │
-│   ├── data/
-│   │   └── roadmaps.json
-│   │
-│   ├── context/
-│   │   └── ProgressContext.jsx
-│   │
-│   ├── App.jsx
-│   └── main.jsx
+├── components/
+│   ├── ui/
+│   │   ├── NavLink.tsx
+│   │   ├── SkillTreeGraph.tsx
+│   │   └── SkillTreeNode.tsx
 │
-└── package.json
+├── hooks/
+├── integrations/
+├── lib/
+│
+├── pages/
+│   ├── Index.tsx
+│   ├── RoadmapPage.tsx
+│   └── NotFound.tsx
+│
+├── App.tsx
+├── main.tsx
+│
+└── test/
 ```
+
+### Folder Responsibilities
+
+* **components/ui/** → Reusable UI and graph components
+* **pages/** → Application routes
+* **hooks/** → Custom React hooks
+* **lib/** → Utilities / helpers
+* **integrations/** → Supabase or external services
+* **supabase/** → Backend configuration
 
 ---
 
-## 📊 Example Roadmap Structure (JSON)
+## 🌳 How It Works
 
-```json
-{
-  "Frontend Developer": {
-    "HTML": ["Semantic Tags", "Forms", "Accessibility"],
-    "CSS": ["Flexbox", "Grid", "Animations"],
-    "JavaScript": ["ES6+", "DOM Manipulation", "Async JS"],
-    "Frameworks": ["React", "Vue"]
-  }
-}
-```
+1. User enters a dream career.
+2. The app loads the roadmap structure.
+3. The roadmap is converted into tree nodes.
+4. Nodes render using `SkillTreeGraph` and `SkillTreeNode`.
+5. Progress is stored and updated dynamically.
 
 ---
 
-## ⚙️ Installation & Setup
+## 🚀 Getting Started
 
 ### 1️⃣ Clone the repository
 
 ```bash
 git clone https://github.com/your-username/career-path-visualizer.git
-```
-
-### 2️⃣ Navigate into the project
-
-```bash
 cd career-path-visualizer
 ```
 
-### 3️⃣ Install dependencies
+### 2️⃣ Install dependencies
+
+If using npm:
 
 ```bash
 npm install
 ```
 
-### 4️⃣ Start development server
+If using Bun:
+
+```bash
+bun install
+```
+
+### 3️⃣ Setup environment variables
+
+Create a `.env` file:
+
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_anon_key
+```
+
+### 4️⃣ Run development server
 
 ```bash
 npm run dev
@@ -150,56 +124,75 @@ npm run dev
 
 ---
 
-## 🧠 How It Works
+## 📊 Example Career Roadmap Structure
 
-1. User enters a career name.
-2. The app fetches a predefined roadmap (or generates one dynamically in future versions).
-3. The roadmap is converted into graph nodes and edges.
-4. Users can interact with nodes and track progress.
-5. Completion data is stored locally.
+```ts
+export const frontendRoadmap = {
+  name: "Frontend Developer",
+  skills: [
+    {
+      name: "HTML",
+      children: ["Semantic Tags", "Forms", "Accessibility"]
+    },
+    {
+      name: "CSS",
+      children: ["Flexbox", "Grid", "Animations"]
+    },
+    {
+      name: "JavaScript",
+      children: ["ES6+", "DOM Manipulation", "Async JS"]
+    }
+  ]
+}
+```
 
 ---
 
 ## 🔮 Future Improvements
 
 * AI-generated roadmaps
-* User authentication
+* Authentication system
 * Cloud-based progress saving
 * Weekly learning planner
-* Export roadmap as PDF
-* Shareable progress link
+* Skill difficulty levels
 * Real-world project milestones
-* Time estimation per skill
+* Drag-and-drop custom roadmap builder
 
 ---
 
-## 🎨 UI Focus
-
-This project emphasizes:
-
-* Clean, modern design
-* Interactive graph visualization
-* Smooth animations
-* Clear information hierarchy
-* User-friendly experience
-
----
-
-## 🏆 Why This Project Is Valuable
+## 🎯 Goals of This Project
 
 This project demonstrates:
 
-* Advanced UI development
-* Graph data structures
-* Complex state management
-* Interactive visualizations
-* Real-world problem solving
+* Complex UI rendering
+* Tree graph data structures
+* TypeScript architecture
+* Scalable React folder organization
+* Integration with backend services
+* Modern UI/UX practices
 
 ---
 
-## 🤝 Contributing
+## 🧪 Testing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Test folder available inside:
+
+```
+src/test/
+```
+
+Run tests (if configured):
+
+```bash
+npm run test
+```
+
+---
+
+## 🧑‍💻 Author
+
+Your Name
+Frontend Developer
 
 ---
 
@@ -209,3 +202,12 @@ MIT License
 
 ---
 
+If you'd like, I can also:
+
+* Add GitHub badges
+* Add a professional project description for LinkedIn
+* Create a clean project thumbnail banner
+* Help you deploy to Vercel
+* Help you polish it for portfolio review
+
+What’s your next step with this project — UI polishing or logic building?
