@@ -1,6 +1,4 @@
-Perfect 👍 since you're using **React + TypeScript + Vite + Tailwind + Supabase**, I’ll tailor the README exactly to your project structure.
 
-You can copy this directly into your `README.md`.
 
 ---
 
@@ -191,7 +189,7 @@ npm run test
 
 ## 🧑‍💻 Author
 
-Your Name
+Naman 
 Frontend Developer
 
 ---
@@ -202,12 +200,3 @@ MIT License
 
 ---
 
-If you'd like, I can also:
-
-* Add GitHub badges
-* Add a professional project description for LinkedIn
-* Create a clean project thumbnail banner
-* Help you deploy to Vercel
-* Help you polish it for portfolio review
-
-What’s your next step with this project — UI polishing or logic building?
